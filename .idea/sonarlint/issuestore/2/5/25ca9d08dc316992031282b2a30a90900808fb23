@@ -1,0 +1,20 @@
+
+a
+java:S1854"?Remove this useless assignment to local variable "userService".(´òÌÙøÿÿÿÿ8ä¶ÇÖ€1
+b
+java:S1854"ERemove this useless assignment to local variable "companyRepository".(€é¼·8×™ËÖ€1
+d
+java:S1854"BRemove this useless assignment to local variable "userRepository".(’‡›úÿÿÿÿ8×™ËÖ€1
+_
+java:S1854"BRemove this useless assignment to local variable "connectionPool".(ÙÖÃğ8Ü¼ÉÖ€1
+X	java:S125"<This block of commented-out lines of code should be removed.(ÍÜ®®8å¶ÇÖ€1
+P
+java:S1481"3Remove this unused "connectionPool" local variable.(ÙÖÃğ8İ¼ÉÖ€1
+U
+java:S1481"3Remove this unused "userRepository" local variable.(’‡›úÿÿÿÿ8Ù™ËÖ€1
+S
+java:S1481"6Remove this unused "companyRepository" local variable.(€é¼·8Ù™ËÖ€1
+R
+java:S1481"0Remove this unused "userService" local variable.(´òÌÙøÿÿÿÿ8æ¶ÇÖ€1
+T
+java:S1135"2Complete the task associated to this TODO comment.(Ö°Óøÿÿÿÿ8æ¶ÇÖ€1
