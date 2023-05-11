@@ -3,8 +3,29 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="pool1" name="p1,p2,p3" class="spring.database.pool.ConnectionPool"/>
-    <bean id="pool2" name="p4" class="spring.database.pool.ConnectionPool"/>
+    <bean id="driver" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="PostgresDriver"/>
+    </bean>
+
+    <bean id="pool1" name="p1,p2,p3" class="spring.database.pool.ConnectionPool">
+        <constructor-arg name="username" type="java.lang.String" value="postgres"/>
+        <constructor-arg index="1" type="java.lang.Integer" value="10"/>
+        <constructor-arg index="2" type="java.util.List">
+            <list>
+                <value>--arg=value1</value>
+                <value>--arg=value2</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="3" type="java.util.Map">
+            <map>
+                <entry key="url" value="postgresurl"/>
+                <entry key="password" value="123"/>
+            </map>
+        </constructor-arg>
+
+
+    </bean>
+    <!--    <bean id="pool2" name="p4" class="spring.database.pool.ConnectionPool"/>-->
 
 
 </beans>

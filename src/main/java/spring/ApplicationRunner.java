@@ -10,7 +10,7 @@ public class ApplicationRunner {
 
         var context = new ClassPathXmlApplicationContext("application.xml");
         // clazz -> String -> Map <String, Object>
-        ConnectionPool connectionPool = context.getBean("pool2", ConnectionPool.class);
+        ConnectionPool connectionPool = context.getBean("pool1", ConnectionPool.class);
 //        ConnectionPool connectionPool = context.getBean("p1", ConnectionPool.class); Смотрит по aliasMap
         System.out.println(connectionPool);
 //        System.out.println(context.getBean(ConnectionPool.class));
