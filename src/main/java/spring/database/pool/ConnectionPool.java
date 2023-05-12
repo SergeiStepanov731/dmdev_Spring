@@ -1,15 +1,16 @@
 package spring.database.pool;
 
+import org.springframework.beans.factory.InitializingBean;
+
 import java.util.List;
 import java.util.Map;
 
-public class ConnectionPool {
+public class ConnectionPool implements InitializingBean {
 
     private final String username;
     private final Integer poolSize;
     private final List<Object> args;
-    private final Map<String, Object> properties;
-
+    private Map<String, Object> properties; // Чтобы сделать Di через setters нам нужно убрать final у поля, что делает его не иммутабельным
     public ConnectionPool(String username,
                           Integer poolSize,
                           List<Object> args,
@@ -18,5 +19,22 @@ public class ConnectionPool {
         this.poolSize = poolSize;
         this.args = args;
         this.properties = properties;
+    }
+
+    public void setProperties(Map<String, Object> properties) {
+        this.properties = properties;
+    }
+
+    private void init() {
+        System.out.println("init method ConnectionPool");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Properties set");
+    }
+
+    private void destroy() {
+        System.out.println("clean connection pool");
     }
 }

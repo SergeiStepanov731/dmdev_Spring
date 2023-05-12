@@ -2,18 +2,23 @@ package spring;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.database.pool.ConnectionPool;
+import spring.database.repository.CompanyRepository;
 import spring.ioc.Container;
 import spring.service.UserService;
 
 public class ApplicationRunner {
     public static void main(String[] args) {
 
-        var context = new ClassPathXmlApplicationContext("application.xml");
-        // clazz -> String -> Map <String, Object>
-        ConnectionPool connectionPool = context.getBean("pool1", ConnectionPool.class);
+        try (var context = new ClassPathXmlApplicationContext("application.xml")) {
+            // clazz -> String -> Map <String, Object> Хранятся только синглтоны
+            ConnectionPool connectionPool = context.getBean("p1", ConnectionPool.class);
 //        ConnectionPool connectionPool = context.getBean("p1", ConnectionPool.class); Смотрит по aliasMap
-        System.out.println(connectionPool);
+            System.out.println(connectionPool);
+            CompanyRepository companyRepository = context.getBean("companyRepository", CompanyRepository.class);
+            System.out.println(companyRepository);
 //        System.out.println(context.getBean(ConnectionPool.class));
+        }
+
 
 
 
