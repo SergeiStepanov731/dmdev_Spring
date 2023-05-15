@@ -1,15 +1,25 @@
 package spring;
 
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.database.pool.ConnectionPool;
 import spring.database.repository.CompanyRepository;
 import spring.ioc.Container;
 import spring.service.UserService;
 
+import java.io.Serializable;
+
 public class ApplicationRunner {
     public static void main(String[] args) {
 
         try (var context = new ClassPathXmlApplicationContext("application.xml")) {
+
+            String value = "Hello";
+            System.out.println(CharSequence.class.isAssignableFrom(value.getClass()));
+            System.out.println(BeanFactoryPostProcessor.class.isAssignableFrom(value.getClass()));
+            System.out.println(Serializable.class.isAssignableFrom(value.getClass()));
+
+
             // clazz -> String -> Map <String, Object> Хранятся только синглтоны
             ConnectionPool connectionPool = context.getBean("p1", ConnectionPool.class);
 //        ConnectionPool connectionPool = context.getBean("p1", ConnectionPool.class); Смотрит по aliasMap
